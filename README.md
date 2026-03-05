@@ -1,4 +1,6 @@
-# Microstructure Segmentation (Aachen + UHCS)
+# Microstructure Semantic Segmentation (UHCS + Aachen)
+
+For microstructure generation (SD3.5 DreamBooth+LoRA), see: https://github.com/tuyencuong/sd35-dreambooth-lora-param-aware
 
 ![Framework](images/segmentation_framework.PNG)
 Semantic segmentation framework for microstructure validation. (a) U-Net with a pre-trained VGG-16 encoder is fine-tuned on the labeled UHCS micrographs and then applied to real/generated images to predict four microconstituent classes. (b) Detailed architecture with efficient channel attention (ECA, green) integrated after each encoder convolutional block (purple), enabling channel-wise refinement without dimensionality reduction, alongside group normalization, LeakyReLU activations, max pooling (red arrows), bilinear upsampling (green/yellow arrows), and skip connections (black) for robust feature fusion despite class imbalance and data scarcity. (c) Zoomed ECA module: post-conv features (W×H×C) undergo global average pooling (GAP) to 1×1×C, followed by 1D convolution with kernel k = 5, sigmoid activation, and element-wise multiplication (×) back to original features for efficient cross-channel interaction.
@@ -47,6 +49,12 @@ Semantic-segmentation-on-UHCS-and-Aachen/
 ```
 
 ## 4. Environment
+
+git clone https://github.com/tuyencuong/Semantic-segmentation-on-UHCS-and-Aachen.git
+cd Semantic-segmentation-on-UHCS-and-Aachen
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 
 Use the project virtual environment:
 
