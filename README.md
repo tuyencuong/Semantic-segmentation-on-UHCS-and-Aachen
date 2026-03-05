@@ -50,19 +50,18 @@ Semantic-segmentation-on-UHCS-and-Aachen/
 
 ## 4. Environment
 
-git clone https://github.com/tuyencuong/Semantic-segmentation-on-UHCS-and-Aachen.git
-cd Semantic-segmentation-on-UHCS-and-Aachen
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-
-Use the project virtual environment:
+### Installation (recommended: Python venv)
 
 ```bash
-source /home/cuong/OLD_NOT_GOOD/KIMS_trivial/.env/bin/activate
-```
+git clone https://github.com/tuyencuong/Semantic-segmentation-on-UHCS-and-Aachen.git
+cd Semantic-segmentation-on-UHCS-and-Aachen
 
-Core dependencies used in this repository include `torch`, `torchvision`, `albumentations`, `opencv-python`, `numpy`, `pandas`, `Pillow`, `PyYAML`, and `tqdm`.
+python -m venv .venv
+source .venv/bin/activate
+
+pip install --upgrade pip
+pip install -r requirements.txt
+```
 
 ## 5. Dataset Expectations
 
