@@ -1,0 +1,19 @@
+# Tiny smoke-test override for CI/local validation.
+n_epochs: 1
+batch_size: 2
+train_size: [64, 64]
+eval_size: [64, 64]
+train_num_workers: 0
+eval_num_workers: 0
+pin_memory: false
+save_every: 0
+optimizer:
+  type: AdamW
+  encoder_lr: 1.0e-4
+  decoder_lr: 1.0e-4
+  weight_decay: 0.0
+lr_scheduler:
+  type: MultiStepLR
+  params:
+    milestones: [1]
+    gamma: 0.1

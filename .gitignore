@@ -1,0 +1,17 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Runtime artifacts
+checkpoints/
+predictions/
+outputs/
+logs/
+
+# Local testing artifacts
+test_assets/
+test_runs/
+
+# Misc
+*.pkl
+*.npy

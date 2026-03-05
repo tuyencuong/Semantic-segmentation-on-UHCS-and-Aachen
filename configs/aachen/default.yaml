@@ -1,0 +1,56 @@
+# Default config for Aachen dataset (2-class segmentation).
+# Override paths/splits from CLI or a custom YAML when needed.
+
+img_folder: inputs
+label_folder: targets
+
+n_classes: 2
+batch_size: 4
+n_epochs: 100
+
+train_size: [512, 512]
+eval_size: [512, 512]
+use_random_crop: false
+
+mean: [0.485, 0.456, 0.406]
+std: [0.229, 0.224, 0.225]
+augmentations:
+  HorizontalFlip: {p: 0.5}
+  VerticalFlip: {p: 0.5}
+  RandomRotate90: {p: 0.5}
+
+train_repeat: 1
+pin_memory: true
+drop_last: true
+train_num_workers: 4
+eval_num_workers: 2
+
+loss_type: CE
+ignore_index: -1
+label_mode: binary_nonzero
+label_extensions: [".png", ".npy", ".tif", ".tiff"]
+
+model_variant: aachen_baseline
+save_every: 20
+
+optimizer:
+  type: AdamW
+  encoder_lr: 1.0e-4
+  decoder_lr: 1.0e-4
+  weight_decay: 1.0e-5
+
+lr_scheduler:
+  type: MultiStepLR
+  params:
+    milestones: [60, 90]
+    gamma: 0.1
+
+split_info:
+  type: MetadataCSV
+  metadata_csv: metadata.csv
+  set_col: set
+  train_sets: [train]
+  val_sets: [val]
+  test_sets: [test]
+  val_split_ratio: 0.1
+  test_type: validation
